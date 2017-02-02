@@ -1,8 +1,8 @@
  (function() {
      function Fixtures() {
          var Fixtures = {};
-         
-         var albumPicasso = {
+        
+var albumPicasso = {
     title: 'The Colors',
     artist: 'Pablo Picasso',
     label: 'Cubism',

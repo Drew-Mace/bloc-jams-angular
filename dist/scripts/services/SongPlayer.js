@@ -33,19 +33,19 @@ var setSong = function(song) {
 *@type {Object} 
 */
 var playSong = function(song){
+    if (currentBuzzObject){
     currentBuzzObject.play();
     song.playing = true;
-};         
+    }
+};
          
          SongPlayer.play = function(song) {
          if (currentSong !== song) {
              setSong(song);
-             currentBuzzObject.play();
-             playSong = true;
                  
        } else if (currentSong === song) {
          if (currentBuzzObject.isPaused()) {
-             currentBuzzObject.play();
+             playSong(song);
          }
      }
   };
@@ -57,7 +57,7 @@ var playSong = function(song){
 */
  SongPlayer.pause = function(song) {
      currentBuzzObject.pause();
-     playSong = false;
+     song.playing = false;
  };         
           return SongPlayer;
      }

@@ -64,6 +64,7 @@ var stopSong = function(song){
  */
  SongPlayer.currentTime = null;         
 
+ SongPlayer.volume = 80;        
 /**
 * @function Song play
 * @desc Plays song
@@ -137,6 +138,13 @@ var stopSong = function(song){
          currentBuzzObject.setTime(time);
      }
  };         
+         
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+            SongPlayer.volume = volume;
+        };         
          
           return SongPlayer;
      }

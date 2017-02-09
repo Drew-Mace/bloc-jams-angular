@@ -121,4 +121,5 @@ var stopSong = function(song){
  
      angular
          .module('blocJams')
+         .factory('SongPlayer', [ 'Fixtures', SongPlayer]);
  })();

@@ -35,7 +35,7 @@ var setSong = function(song) {
 */
 var playSong = function(song){
     currentBuzzObject.play();
-    stopSong();
+    song.playing = true;
     
 };
 
@@ -121,5 +121,5 @@ var stopSong = function(song){
  
      angular
          .module('blocJams')
-         .factory('SongPlayer', [ 'Fixtures', SongPlayer]);
+         .factory('SongPlayer',[ 'Fixtures', SongPlayer]);
  })();

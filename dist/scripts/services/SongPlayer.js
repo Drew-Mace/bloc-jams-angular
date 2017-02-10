@@ -25,15 +25,17 @@ var setSong = function(song) {
         formats: ['mp3'],
         preload: true
     });
+    
+    currentBuzzObject.bind('timeupdate', function() {
+         $rootScope.$apply(function() {
+             SongPlayer.currentTime = currentBuzzObject.getTime();
+         });
+     }); 
  
     SongPlayer.currentSong = song;
  }; 
 
-     currentBuzzObject.bind('timeupdate', function() {
-         $rootScope.$apply(function() {
-             SongPlayer.currentTime = currentBuzzObject.getTime();
-         });
-     });         
+             
 
 /** 
 *@desc play currentBuzzObject
@@ -47,8 +49,8 @@ var playSong = function(song){
 
 var stopSong = function(song){
     currentBuzzObject.stop();
-    son
-}
+    song.playing = null;
+};
 /**
 * @desc Get index of song
 * @type {object}
@@ -92,7 +94,7 @@ var stopSong = function(song){
  SongPlayer.pause = function(song) {
      song = song || SongPlayer.currentSong;
      currentBuzzObject.pause();
-     stopSong();
+     song.playing = false;
  };         
 
 /* 
